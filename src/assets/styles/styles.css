@@ -1,0 +1,21 @@
+@import"Header.module.css";
+@import "PromoSection.module.css";
+@import"Caption.module.css";
+@import"AboutSection.module.css";
+@import"FeaturesSection.module.css";
+@import "CTASection.module.css";
+@import"Footer.module.css";
+@import"Slider.css";
+@import"normalize.css";
+@import"body.css";
+@import"fonts.css";
+@import"Preloader.css";
+body {
+  margin: 0;
+  background-color: #f5f5f5; 
+  position: relative;
+  background-color: white;
+  max-width: 1440px;
+  min-height: 100vh; 
+  margin: 0 auto;
+}
