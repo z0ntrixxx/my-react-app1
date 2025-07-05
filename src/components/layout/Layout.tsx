@@ -1,26 +1,21 @@
-import type { ReactNode } from 'react';
-import Header from './Header';
+import React from 'react';
+import { useLocation } from 'react-router-dom';
+import Header from './Header'; 
 import Footer from './Footer';
-/*import './src/assets/styles/Layout.css';*/
 
 interface LayoutProps {
-  children: ReactNode;
+  children: React.ReactNode;
 }
 
-const Layout = ({ children }: LayoutProps) => {
+const Layout: React.FC<LayoutProps> = ({ children }) => {
+  const location = useLocation();
+  const isNotFoundPage = location.pathname === '/not-found';
+
   return (
-    <div className="body__container">
-      <header className="layout-header">
-        <Header />
-      </header>
-
-      <main className="container" id="main">
-        {children}
-      </main>
-
-      <footer className="layout-footer">
-        <Footer />
-      </footer>
+    <div className="layout">
+      {!isNotFoundPage && <Header />}
+      <main>{children}</main>
+      {!isNotFoundPage && <Footer />}
     </div>
   );
 };

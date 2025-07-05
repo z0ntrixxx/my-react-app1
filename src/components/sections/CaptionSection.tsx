@@ -5,8 +5,8 @@ const CaptionSection: React.FC = () => {
     <section className="section caption" id="caption">
       <div className="caption__content">
         <div>
-          <img className="background__content__img" src="/images/Mask.png" alt="кавычки" />
-          <img className="caption__pic" src="/images/Eli.png" alt="фото" />
+          <img className="background__content__img" src="/images/Mask.png" alt="" />
+          <img className="caption__pic" src="/images/Eli.png" alt="" />
         </div>
 
         <div className="caption__title">

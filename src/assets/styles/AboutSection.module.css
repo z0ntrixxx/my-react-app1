@@ -117,8 +117,7 @@
 .about__content {
     margin: 7px;
     padding: 14px 44.5px;
-    background-color: #3d1edd;
-    border: 1px solid #3d1edd; 
+    border: 1px solid #e5defd;
     color: #ffffff;
     text-align: center;
     cursor: pointer;
@@ -189,4 +188,7 @@
 .about__normol3{
     font-size: 8px;
     font-weight: 700;
+}
+.about__link{
+    color: #000000;
 }

@@ -1,6 +1,6 @@
 // src/components/AboutSection/AboutSection.tsx
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 const AboutSection: React.FC = () => {
   return (
     <section className="section__about" id="about">
@@ -50,7 +50,7 @@ const AboutSection: React.FC = () => {
                 </div>
                 <div className="about__email">
                   <p className="about__normol">Электронная почта</p>
-                  <p className="about__normol1">pristia@gmail.com</p>
+                  <Link to="/not-found" className="about__normol1">pristia@gmail.com</Link>
                 </div>
               </div>
 
@@ -60,13 +60,17 @@ const AboutSection: React.FC = () => {
                 </div>
                 <div className="about__email">
                   <p className="about__normol2">Номер телефона</p>
-                  <p className="about__normol3">0809021920139</p>
+                  <Link to="/not-found" className="about__normol3">0809021920139</Link>
                 </div>
               </div>
               
               <div>
-                <button type="button" className="about__content">Скачать резюме</button>
-                <button type="button" className="about__content2">Сообщение</button>
+                <button type="button" className="about__content">
+                  <Link to="/not-found" className="about__link">Скачать резюме</Link>
+                </button>
+                <button type="button" className="about__content2">
+                   <Link to="/not-found" className="about__link">Сообщение</Link>
+                </button>
               </div>
             </div>
           </div>

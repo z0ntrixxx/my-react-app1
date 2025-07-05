@@ -1,25 +1,37 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Outlet,} from 'react-router-dom';
+
 import Layout from './components/layout/Layout';
-import PromoSection from './components/sections/PromoSection';
-import CaptionSection from './components/sections/CaptionSection';
-import AboutSection from './components/sections/AboutSection';
-import FeaturesSection from './components/sections/FeaturesSection';
-import CTASection from './components/sections/CTASection';
 import Preloader from './components/ui/Preloader';
-import CardList from './components/CardList/CardList';
+
+// Страницы
+import HomePage from './pages/HomePage';
+import CardsPage from './pages/CardsPage';
+import NotFoundPage from './pages/NotFoundPage';
+
 const App: React.FC = () => {
+  return (
+    <Router>
+      <Layout>
+        <Routes>
+          <Route element={<MainLayout />}>
+            <Route index element={<HomePage />} />
+            <Route path="cards" element={<CardsPage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Route>
+        </Routes>
+      </Layout>
+    </Router>
+  );
+};
+const MainLayout: React.FC = () => {
   return (
     <>
       <Preloader />
-      <Layout>
-        <PromoSection />
-        <CaptionSection />
-        <AboutSection />
-        <CardList />
-        <FeaturesSection />
-        <CTASection />
-      </Layout>
-      {/* <Modal /> */}
+      <main>
+        <Outlet />
+      </main>
+  
     </>
   );
 };

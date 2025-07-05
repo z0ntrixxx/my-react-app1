@@ -1,13 +1,19 @@
 import React from 'react';
 import styles from '/src/assets/styles/Header.module.css';
+import { Link } from 'react-router-dom';
 
+<li>
+  <Link to="/not-found" className={styles.header__recruiters}>
+    Для рекрутеров
+  </Link>
+</li>
 const Header: React.FC = () => {
   return (
     <header className={styles.header}>
-      <p className={styles.header__logo}>Джобли</p>
+      <a href="#main" className={styles.header__logo}>Джобли</a>
       <nav className={styles.header__nav}>
         <ul className={styles.header__list}>
-          <li><button type="button" className={styles.header__recruiters}>Для рекрутеров</button></li>
+          <li><Link to="/not-found" className={styles.header__recruiters}>Для рекрутеров</Link></li>
           <li><button type="button" className={styles.header__signup}>Зарегистрироваться</button></li>
           <li><button type="button" className={styles.header__login} data-modal="open">Авторизоваться</button></li>
         </ul>
@@ -15,5 +21,4 @@ const Header: React.FC = () => {
     </header>
   );
 };
-
 export default Header;

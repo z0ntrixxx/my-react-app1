@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Card from '../Card/Card';
 import styles from '../../assets/styles/CardList.module.css';
 
@@ -8,7 +9,11 @@ interface Post {
   subtitle: string;
 }
 
-const CardList: React.FC = () => {
+interface CardListProps {
+  limit?: number;
+}
+
+const CardList: React.FC<CardListProps> = ({ limit = 3 }) => {
   const [cards, setCards] = useState<Post[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -20,14 +25,14 @@ const CardList: React.FC = () => {
         return response.json();
       })
       .then((data: Post[]) => {
-        setCards(data);
+        setCards(data.slice(0, limit));
         setLoading(false);
       })
       .catch((err) => {
         setError(err.message);
         setLoading(false);
       });
-  }, []);
+  }, [limit]);
 
   if (loading) return <div>Загрузка...</div>;
   if (error) return <div>Ошибка: {error}</div>;
@@ -35,16 +40,22 @@ const CardList: React.FC = () => {
   return (
     <div className={styles.cardList}>
       {cards.map((card, index) => {
-        const cardClass = ['card1', 'card2', 'card3'][index % 3]; 
+        const cardClass = ['card1', 'card2', 'card3'][index % 3];
 
         return (
-          <Card
+          <Link
+            to="/cards"
             key={card.icon}
-            title={card.title}
-            text={card.subtitle}
-            image={`/${card.icon}`}
-            cardClass={cardClass as any}
-          />
+            className={styles.cardLink}
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          >
+            <Card
+              title={card.title}
+              text={card.subtitle}
+              image={`/${card.icon}`}
+              cardClass={cardClass as any}
+            />
+          </Link>
         );
       })}
     </div>
