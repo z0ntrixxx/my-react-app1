@@ -29,3 +29,21 @@
     border: 1px solid #3d1edd;
     color: #fff;
 }
+@media (max-width: 768px) {
+  .CTA__all {
+    grid-template-columns: 1fr;
+  }
+
+  .CTA__tile {
+    padding-left: 20px;
+    padding-top: 10px;
+  }
+
+  .CTA__subtitle {
+    font-size: 32px;
+  }
+
+  .CTA__button {
+    padding: 10px 20px;
+  }
+}

@@ -1,15 +1,8 @@
-// src/components/Card/Card.tsx
 import React from 'react';
 import styles from '../../assets/styles/Card.module.css';
+import type { CardProps } from '../../types/card.types';
 
-interface CardProps {
-  title: string;
-  text: string;
-  image?: string;
-  cardClass?: keyof typeof styles; 
-}
-
-const Card: React.FC<CardProps> = ({ title, text, image, cardClass }) => {
+const Card: React.FC<CardProps> = React.memo(({ title, text, image, cardClass }) => {
   return (
     <div className={`${styles.card} ${cardClass ? styles[cardClass] : ''}`}>
       {image && <img src={image} alt={title} className={styles['card-image']} />}
@@ -19,6 +12,6 @@ const Card: React.FC<CardProps> = ({ title, text, image, cardClass }) => {
       </div>
     </div>
   );
-};
+});
 
 export default Card;

@@ -37,3 +37,38 @@
     top: 25px;
     left: 245px;
 }
+
+@media (max-width: 768px) {
+  .caption__title__laed {
+    font-size: 24px;
+    line-height: 1.4;
+    padding: 0 20px;
+  }
+
+  .caption__img {
+    width: 32px;
+    height: auto;
+  }
+
+  .caption__pic {
+    max-width: 90%;
+    height: auto;
+  }
+
+  .caption__content {
+    margin-top: 60px;
+    margin-bottom: 40px;
+  }
+
+  .background__content__img {
+    display: none; 
+  }
+
+  .caption__subtitle__1 {
+    font-size: 16px;
+  }
+
+  .caption__subtitle__laed {
+    font-size: 14px;
+  }
+}

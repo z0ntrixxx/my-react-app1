@@ -1,46 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import Card from '../Card/Card';
 import styles from '../../assets/styles/CardList.module.css';
+import { useFetchCards } from '../../hooks/useFetchCards';
+import type { CardItem } from '../../types/card.types';
+import type { CardListProps } from '../../types/card.types.ts';
 
-interface Post {
-  icon: string;
-  title: string;
-  subtitle: string;
-}
-
-interface CardListProps {
-  limit?: number;
-}
 
 const CardList: React.FC<CardListProps> = ({ limit = 3 }) => {
-  const [cards, setCards] = useState<Post[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
+  const { cards, loading, error } = useFetchCards(limit);
 
-  useEffect(() => {
-    fetch('cards.json')
-      .then((response) => {
-        if (!response.ok) throw new Error('Ошибка при загрузке данных');
-        return response.json();
-      })
-      .then((data: Post[]) => {
-        setCards(data.slice(0, limit));
-        setLoading(false);
-      })
-      .catch((err) => {
-        setError(err.message);
-        setLoading(false);
-      });
-  }, [limit]);
-
-  if (loading) return <div>Загрузка...</div>;
-  if (error) return <div>Ошибка: {error}</div>;
+  if (loading) return <div className={styles.loading}>Загрузка...</div>;
+  if (error) return <div className={styles.error}>Ошибка: {error}</div>;
 
   return (
     <div className={styles.cardList}>
-      {cards.map((card, index) => {
-        const cardClass = ['card1', 'card2', 'card3'][index % 3];
+      {cards.map((card: CardItem, index) => {
+        const cardClass = ['card1', 'card2', 'card3'][index % 3] as 'card1' | 'card2' | 'card3';
 
         return (
           <Link
@@ -53,7 +29,7 @@ const CardList: React.FC<CardListProps> = ({ limit = 3 }) => {
               title={card.title}
               text={card.subtitle}
               image={`/${card.icon}`}
-              cardClass={cardClass as any}
+              cardClass={cardClass}
             />
           </Link>
         );

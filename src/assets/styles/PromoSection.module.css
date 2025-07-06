@@ -1,5 +1,6 @@
 .promo__content{
     text-align: center;
+    padding-block: 50px;
 }
 
 .promo__title {
@@ -43,4 +44,27 @@
   width: 50%;
   height: 100%;
   z-index: -1;
+}
+
+@media (max-width: 768px) {
+  .promo__title {
+    font-size: 48px;
+    line-height: 56px;
+  }
+
+  .promo__button {
+    padding: 10px 20px;
+  }
+
+  .promo__content__text {
+    font-size: 16px;
+  }
+
+  .promo__description {
+    font-size: 18px;
+  }
+
+  .promo__button__text {
+    font-size: 14px;
+  }
 }

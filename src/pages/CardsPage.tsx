@@ -1,7 +1,5 @@
-// src/pages/CardsPage.tsx
-
 import React from 'react';
-import { Link } from 'react-router-dom'; // Импортируем Link
+import { Link } from 'react-router-dom';
 import CardList from '../components/CardList/CardList';
 
 const CardsPage: React.FC = () => {

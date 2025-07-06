@@ -1,10 +1,7 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Outlet,} from 'react-router-dom';
-
+import { BrowserRouter as Router, Routes, Route, Outlet } from 'react-router-dom';
 import Layout from './components/layout/Layout';
 import Preloader from './components/ui/Preloader';
-
-// Страницы
 import HomePage from './pages/HomePage';
 import CardsPage from './pages/CardsPage';
 import NotFoundPage from './pages/NotFoundPage';
@@ -16,7 +13,7 @@ const App: React.FC = () => {
         <Routes>
           <Route element={<MainLayout />}>
             <Route index element={<HomePage />} />
-            <Route path="cards" element={<CardsPage />} />
+            <Route path="/cards" element={<CardsPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>
@@ -24,6 +21,7 @@ const App: React.FC = () => {
     </Router>
   );
 };
+
 const MainLayout: React.FC = () => {
   return (
     <>
@@ -31,7 +29,6 @@ const MainLayout: React.FC = () => {
       <main>
         <Outlet />
       </main>
-  
     </>
   );
 };

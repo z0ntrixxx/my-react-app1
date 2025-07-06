@@ -5,6 +5,7 @@ import AboutSection from '../components/sections/AboutSection';
 import FeaturesSection from '../components/sections/FeaturesSection';
 import CTASection from '../components/sections/CTASection';
 import CardList from '../components/CardList/CardList';
+import { MAX_CARDS } from '../constants';
 
 const HomePage: React.FC = () => {
   return (
@@ -12,7 +13,7 @@ const HomePage: React.FC = () => {
       <PromoSection />
       <CaptionSection />
       <AboutSection />
-      <CardList limit={3} />
+      <CardList limit={MAX_CARDS} />
       <FeaturesSection />
       <CTASection />
     </>

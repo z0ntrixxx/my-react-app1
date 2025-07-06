@@ -1,0 +1,11 @@
+.nfpage{
+    padding-left: 475px;
+    text-align: center;
+    margin-top: 50px;
+}
+@media (max-width: 768px) {
+  .nfpage {
+    padding-left: 20px;
+    margin-top: 20px;
+  }
+}
